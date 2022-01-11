@@ -41,6 +41,9 @@
           </property>
           <item row="5" column="0">
            <widget class="QLabel" name="label_2">
+            <property name="statusTip">
+             <string>Cantidad de horas trabajadas</string>
+            </property>
             <property name="text">
              <string>Horas:</string>
             </property>
@@ -48,6 +51,9 @@
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label">
+            <property name="statusTip">
+             <string>Nombre del obrero</string>
+            </property>
             <property name="text">
              <string>Nombre:</string>
             </property>
@@ -55,6 +61,9 @@
           </item>
           <item row="3" column="1">
            <widget class="QLineEdit" name="inNombre">
+            <property name="statusTip">
+             <string>Nombre del obrero</string>
+            </property>
             <property name="maxLength">
              <number>120</number>
             </property>
@@ -65,6 +74,9 @@
           </item>
           <item row="5" column="1">
            <widget class="QSpinBox" name="inHoras">
+            <property name="statusTip">
+             <string>Cantidad de horas trabajadas</string>
+            </property>
             <property name="value">
              <number>8</number>
             </property>
@@ -75,6 +87,9 @@
        </item>
        <item>
         <widget class="QLabel" name="label_3">
+         <property name="statusTip">
+          <string>La jornada en la que el obrero labora</string>
+         </property>
          <property name="text">
           <string>Jornada</string>
          </property>
@@ -82,6 +97,9 @@
        </item>
        <item>
         <widget class="QWidget" name="widget_4" native="true">
+         <property name="statusTip">
+          <string>La jornada en la que el obrero labora</string>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <property name="leftMargin">
            <number>0</number>
@@ -137,6 +155,9 @@
           </item>
           <item>
            <widget class="QPushButton" name="cmdCalcular">
+            <property name="statusTip">
+             <string>Calcular</string>
+            </property>
             <property name="text">
              <string>Calcular</string>
             </property>
@@ -166,6 +187,9 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QPlainTextEdit" name="outResultado">
+         <property name="statusTip">
+          <string>Impresion de resultados</string>
+         </property>
          <property name="readOnly">
           <bool>true</bool>
          </property>
@@ -209,7 +233,11 @@
    <addaction name="menuArchivo"/>
    <addaction name="menuMenu_Ayuda"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="statusTip">
+    <string>StatusBar</string>
+   </property>
+  </widget>
   <action name="actionNuevo">
    <property name="text">
     <string>Nuevo</string>
