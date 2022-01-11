@@ -18,6 +18,8 @@ public:
 private slots:
     void on_cmdCalcular_clicked();
 
+    void on_actionNuevo_triggered();
+
 private:
     Ui::Salarios *ui;
     Controlador *m_controlador;
