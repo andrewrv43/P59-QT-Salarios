@@ -18,16 +18,15 @@ Salarios::~Salarios()
 
 void Salarios::on_cmdCalcular_clicked()
 {
-    QMessageBox Hi;
+
     if(ui->inNombre->text()==""){
     ui->statusbar->showMessage("INGRESE UN NOMBRE VALIDO!",3500);
-    Hi.setText("Nombre no valido");
-Hi.exec();
+
+    QMessageBox::warning(this,"NOMBRE","EL NOMBRE NO ES VALIDO");
     }
     else if((ui->inMatutina->isChecked()==false&&ui->inNocturna->isChecked()==false&&ui->inVespertina->isChecked()==false)){
        ui->statusbar->showMessage("SE NECESITA SABER LA JORNADA DEL TRABAJADOR",3500);
-       Hi.setText("Escoja la Jornada del Trabajador");
-   Hi.exec();
+       QMessageBox::warning(this,"JORNADA","ES NECESARIO ESCOGER LA JORNADA DEL TRABAJADOR");
     }
     else{
 

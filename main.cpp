@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
     Salarios w;
     w.show();
     return a.exec();
-  Controlador *obj = new Controlador();
+    // icono corresponde a: <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+
 
 
 }
