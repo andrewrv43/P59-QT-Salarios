@@ -142,3 +142,13 @@ void Salarios::on_actionAbrir_triggered()
     abrir();
 }
 
+
+void Salarios::on_actionAcerca_de_Salarios_triggered()
+{
+    Acerca *dialogo=new Acerca (this);
+    //enviar dato
+    dialogo->setVersion(VERSION);
+    dialogo->exec();
+
+}
+

@@ -6,6 +6,8 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDebug>
+#include <acerca.h>
+#define VERSION "1.0"
 QT_BEGIN_NAMESPACE
 namespace Ui { class Salarios; }
 QT_END_NAMESPACE
@@ -33,6 +35,8 @@ private slots:
 
     void abrir();
     void on_actionAbrir_triggered();
+
+    void on_actionAcerca_de_Salarios_triggered();
 
 private:
     Ui::Salarios *ui;
