@@ -31,6 +31,9 @@ private slots:
 
     void on_actionGuardar_triggered();
 
+    void abrir();
+    void on_actionAbrir_triggered();
+
 private:
     Ui::Salarios *ui;
     Controlador *m_controlador;
