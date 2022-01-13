@@ -101,7 +101,7 @@ void Salarios::on_actioncalcular_triggered()
 void Salarios::guardar()
 {
     //abrir cuadro de dialogo para seleccionar ubicacion y nombre del archivo
-    QString nombreArchivo = QFileDialog::getSaveFileName(this,"Guardar datos",QDir::home().absolutePath(),"Archivo de salarios (*.slr)");
+    QString nombreArchivo = QFileDialog::getSaveFileName(this,"Guardar datos",QDir::home().absolutePath(),"Archivo de salarios .slr (*.slr)");
     //crear un objeto QFile
 
     QFile archivo(nombreArchivo);
