@@ -142,17 +142,38 @@ void Salarios::abrir()
         QTextStream entrada(&archivo);
         //leer todo el contenido
         ui->outResultado->clear();
-        QString dato="";
-        while(entrada.atEnd()==false){
-       dato+=entrada.readLine()+"\n";
-    }
+        QString dato="",linea;
+
+        // while(entrada.readLine()!="/////////////"){
+        //definimos limites en la impresion
+        while(entrada.atEnd()==false&&linea!="/////////////"){
+            linea=entrada.readLine();
+            if(linea=="/////////////"){}else{
+                dato+=linea+"\n";
+            }
+        }
+        //imprimimos los datos en lost  out y settearlos para seguir calculando
         ui->outResultado->setPlainText(dato);
-       //cargar a la pantalla
+        linea=entrada.readLine();
+        linea=entrada.readLine();
+        linea.remove(0,15);
+        ui->outTotalBruto->setText(linea);
+        m_controlador->m_totalBruto=linea.toDouble();
+        linea=entrada.readLine();
+        linea.remove(0,16);
+        ui->outTotalIESS->setText(linea);
+        m_controlador->m_totalIESS=linea.toDouble();
+        linea=entrada.readLine();
+        linea.remove(0,14);
+        ui->outTotalNeto->setText(linea);
+        m_controlador->m_totalNeto=linea.toDouble();
+        //cargar a la pantalla
 
         ui->statusbar->showMessage("El archivo "+nombreArchivo+" se leyo con exito",3500);
     }
     else{
         QMessageBox::warning(this,"Advertencia!","Los datos no pudieron ser leidos");
+        ui->statusbar->showMessage("El archivo "+nombreArchivo+" no pudo ser leido",3500);
     }
     //cerrar el archivo
     archivo.close();

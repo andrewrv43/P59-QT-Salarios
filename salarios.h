@@ -38,6 +38,7 @@ private slots:
 
     void on_actionAcerca_de_Salarios_triggered();
 
+
 private:
     Ui::Salarios *ui;
     Controlador *m_controlador;
