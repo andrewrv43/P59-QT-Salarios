@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "obrero.h"
+#include <QDebug>
 
 #define MATUTINO 2.65
 #define VESPERTINO 2.73
@@ -18,6 +19,9 @@ public:
     bool calcularSalario();
     Obrero *obrero() const;
     void setObrero(Obrero *newObrero);
+    double m_totalBruto;
+    double m_totalIESS;
+    double m_totalNeto;
 
 signals:
 private:

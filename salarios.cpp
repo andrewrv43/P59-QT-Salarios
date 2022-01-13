@@ -16,7 +16,7 @@ Salarios::~Salarios()
 
 void Salarios::limpiar()
 {
-    ui->inHoras->setValue(0);
+    ui->inHoras->setValue(8);
     ui->inNombre->clear();
     ui->inMatutina->setChecked(true);
     ui->inNombre->setFocus();
@@ -67,6 +67,12 @@ void Salarios::calcular()
 void Salarios::on_cmdCalcular_clicked()
 {
     calcular();
+    ui->outTotalBruto->setText(QString::number(m_controlador->m_totalBruto,'f',2));
+
+    ui->outTotalIESS->setText(QString::number(m_controlador->m_totalIESS));
+
+
+    ui->outTotalNeto->setText(QString::number(m_controlador->m_totalNeto,'f',2));
 
 }
 
@@ -78,6 +84,12 @@ void Salarios::on_actionNuevo_triggered()
     ui->outResultado->clear();
     ui->inMatutina->setChecked(true);
     ui->inNombre->setFocus();
+    ui->outTotalBruto->setText("0");
+    ui->outTotalIESS->setText("0");
+    ui->outTotalNeto->setText("0");
+    m_controlador->m_totalBruto=0;
+    m_controlador->m_totalIESS=0;
+    m_controlador->m_totalNeto=0;
 }
 
 
@@ -97,6 +109,12 @@ void Salarios::guardar()
     if(archivo.open(QFile::WriteOnly|QFile::Truncate)){
         QTextStream salida(&archivo);
         salida<<ui->outResultado->toPlainText();
+        salida.operator<<("\n/////////////\n");
+        salida.operator<<("Total\n");
+        salida.operator<<("Salario bruto: "+QString::number(m_controlador->m_totalBruto)+"\n");
+        salida.operator<<("Descuento total: "+QString::number(m_controlador->m_totalIESS)+"\n");
+        salida.operator<<("Salario neto: "+QString::number(m_controlador->m_totalNeto)+"\n");
+        salida.operator<<("FIN");
         ui->statusbar->showMessage("Datos almacenados en "+nombreArchivo,3500);
     }
     else{
@@ -134,6 +152,7 @@ void Salarios::abrir()
     }
     //cerrar el archivo
     archivo.close();
+
 }
 
 void Salarios::on_actionAbrir_triggered()
