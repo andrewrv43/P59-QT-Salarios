@@ -110,11 +110,11 @@ void Salarios::guardar()
         QTextStream salida(&archivo);
         salida<<ui->outResultado->toPlainText();
         salida.operator<<("\n/////////////\n");
-        salida.operator<<("Total\n");
+        salida.operator<<("Total:\n");
         salida.operator<<("Salario bruto: "+QString::number(m_controlador->m_totalBruto)+"\n");
         salida.operator<<("Descuento total: "+QString::number(m_controlador->m_totalIESS)+"\n");
         salida.operator<<("Salario neto: "+QString::number(m_controlador->m_totalNeto)+"\n");
-        salida.operator<<("FIN");
+        salida.operator<<("//////////");
         ui->statusbar->showMessage("Datos almacenados en "+nombreArchivo,3500);
     }
     else{
@@ -133,7 +133,7 @@ void Salarios::on_actionGuardar_triggered()
 void Salarios::abrir()
 {
     //abrir cuadro de dialogo para seleccionar ubicacion y nombre del archivo
-    QString nombreArchivo = QFileDialog::getOpenFileName(this,"Abrir Archivos",QDir::home().absolutePath(),"Archivo de salarios (*.slr)");
+    QString nombreArchivo = QFileDialog::getOpenFileName(this,"Abrir Archivos",QDir::home().absolutePath(),"Archivo de salarios .slr (*.slr)");
     //crear un objeto QFile
 
     QFile archivo(nombreArchivo);
@@ -141,11 +141,15 @@ void Salarios::abrir()
     if(archivo.open(QFile::ReadOnly)){
         QTextStream entrada(&archivo);
         //leer todo el contenido
-       QString datos=entrada.readAll();
+        ui->outResultado->clear();
+        QString dato="";
+        while(entrada.atEnd()==false){
+       dato+=entrada.readLine()+"\n";
+    }
+        ui->outResultado->setPlainText(dato);
        //cargar a la pantalla
-       ui->outResultado->clear();
-       ui->outResultado->setPlainText(datos);
-        ui->statusbar->showMessage("El archivo "+nombreArchivo+" no pudo ser leido!",3500);
+
+        ui->statusbar->showMessage("El archivo "+nombreArchivo+" se leyo con exito",3500);
     }
     else{
         QMessageBox::warning(this,"Advertencia!","Los datos no pudieron ser leidos");
