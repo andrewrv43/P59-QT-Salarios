@@ -196,3 +196,9 @@ void Salarios::on_actionAcerca_de_Salarios_triggered()
 
 }
 
+
+void Salarios::on_actionSalir_triggered()
+{
+    close();
+}
+
