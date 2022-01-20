@@ -69,7 +69,7 @@ void Salarios::on_cmdCalcular_clicked()
     calcular();
     ui->outTotalBruto->setText(QString::number(m_controlador->m_totalBruto,'f',2));
 
-    ui->outTotalIESS->setText(QString::number(m_controlador->m_totalIESS));
+    ui->outTotalIESS->setText(QString::number(m_controlador->m_totalIESS,'f',2));
 
 
     ui->outTotalNeto->setText(QString::number(m_controlador->m_totalNeto,'f',2));
@@ -148,7 +148,7 @@ void Salarios::abrir()
         //definimos limites en la impresion
         while(entrada.atEnd()==false&&linea!="/////////////"){
             linea=entrada.readLine();
-            if(linea=="/////////////"){}else{
+            if(linea!="/////////////"){
                 dato+=linea+"\n";
             }
         }
